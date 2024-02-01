@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/flight-api")
 @Slf4j
@@ -20,8 +22,14 @@ public class FlightDetailsController {
     
     @GetMapping(value = "/flightNumber/{flightNumber}", produces = MediaType.APPLICATION_JSON_VALUE)
     @SneakyThrows
-    public Flight getOrderDetails(@PathVariable(value = "flightNumber")  String flightNumber) {
+    public Flight getFlightByFlightNumber(@PathVariable(value = "flightNumber")  String flightNumber) {
         return flightService.getFlightByFlightNumber(flightNumber);
+    }
+
+    @GetMapping(value = "/flight", produces = MediaType.APPLICATION_JSON_VALUE)
+    @SneakyThrows
+    public List<Flight> getFlight() {
+        return flightService.getAllFlights();
     }
 
 }
