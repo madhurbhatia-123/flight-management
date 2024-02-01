@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/flight-api")
@@ -19,10 +20,10 @@ import java.util.List;
 public class FlightDetailsController {
 
     private FlightService flightService;
-    
+
     @GetMapping(value = "/flightNumber/{flightNumber}", produces = MediaType.APPLICATION_JSON_VALUE)
     @SneakyThrows
-    public Flight getFlightByFlightNumber(@PathVariable(value = "flightNumber")  String flightNumber) {
+    public Optional<Flight> getFlightByFlightNumber(@PathVariable(value = "flightNumber")  String flightNumber) {
         return flightService.getFlightByFlightNumber(flightNumber);
     }
 

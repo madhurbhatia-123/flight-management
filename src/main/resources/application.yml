@@ -2,3 +2,16 @@ springdoc.api-docs.enabled: true
 server:
   port: ${SERVER_PORT:8082}
 
+spring:
+    datasource:
+      url: jdbc:h2:mem:mydb
+      driverClassName: org.h2.Driver
+      username: sa
+      password:
+    jpa:
+      hibernate:
+        ddl-auto: create
+    h2:
+      console:
+        enabled: true
+        path: /h2-console

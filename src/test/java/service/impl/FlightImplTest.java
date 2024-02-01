@@ -12,6 +12,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -27,7 +29,7 @@ public class FlightImplTest {
 
         Flight mockFlight = new Flight("QF400", "MEL", "SYD", null, null);
         when(flightService.getFlightByFlightNumber(Mockito.anyString())).thenReturn(mockFlight);
-        Flight result = flightService.getFlightByFlightNumber("QF400");
+        Optional<Flight> result = flightService.getFlightByFlightNumber("QF400");
         assertEquals("QF400", result.getFlightNumber());
 
     }

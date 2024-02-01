@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS flight (
+    flightNumber VARCHAR(10) NOT NULL,
+    departurePort VARCHAR(5) NOT NULL,
+    arrivalPort VARCHAR(5) NOT NULL,
+    departureTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    arrivalTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
