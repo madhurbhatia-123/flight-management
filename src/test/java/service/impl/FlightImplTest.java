@@ -28,7 +28,7 @@ public class FlightImplTest {
     void testGetFlightByFlightNumber() {
 
         Flight mockFlight = new Flight("QF400", "MEL", "SYD", null, null);
-        when(flightService.getFlightByFlightNumber(Mockito.anyString())).thenReturn(mockFlight);
+        when(flightService.getFlightByFlightNumber(Mockito.anyString())).thenReturn(Optional.of(mockFlight));
         Optional<Flight> result = flightService.getFlightByFlightNumber("QF400");
         assertEquals("QF400", result.getFlightNumber());
 
