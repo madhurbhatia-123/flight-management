@@ -1,0 +1,4 @@
+springdoc.api-docs.enabled: true
+server:
+  port: ${SERVER_PORT:8082}
+
